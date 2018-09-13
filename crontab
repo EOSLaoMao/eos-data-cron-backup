@@ -1,2 +1,9 @@
- */5 * * * * /cronjob.sh > /proc/1/fd/1 2>/proc/1/fd/2
+
+#Backup at utc 10:00 am every day
+0 10 * * * /cronjob.sh > /proc/1/fd/1 2>/proc/1/fd/2
+
+
+
+# for testing
+#*/1 * * * * /cronjob.sh > /proc/1/fd/1 2>/proc/1/fd/2
 

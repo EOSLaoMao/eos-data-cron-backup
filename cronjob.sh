@@ -1,9 +1,18 @@
 echo "$(date '+%d/%m/%Y %H:%M:%S') kill container"
-docker kill -s TERM ubuntu
+echo "----------------------------------------------"
+docker kill -s TERM $CONTAINER_NAME
+
 echo "$(date '+%d/%m/%Y %H:%M:%S') wait container terminated"
-docker wait ubuntu
+echo "----------------------------------------------"
+docker wait $CONTAINER_NAME
+
 echo "$(date '+%d/%m/%Y %H:%M:%S') start backup"
-# pitreos backup ... 
+echo "----------------------------------------------"
+DATE=$(date '+%y-%m-%d')
+/usr/local/bin/pitreos backup /data -s $STORAGE_PATH/$DATE -t pro -c -m '{"blocknum":"1", "version":"1.2.3"}'
+
 echo "$(date '+%d/%m/%Y %H:%M:%S') restart container"
-docker start ubuntu
+echo "----------------------------------------------"
+docker start $CONTAINER_NAME
+
 echo "$(date '+%d/%m/%Y %H:%M:%S') done"

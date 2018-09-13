@@ -7,9 +7,11 @@ RUN wget -c https://github.com/eoscanada/pitreos/releases/download/v1.0.0/pitreo
 
 ADD crontab /etc/cron.d/backup-cron
 ADD cronjob.sh /cronjob.sh
+ADD entrypoint.sh /entrypoint.sh 
 
-RUN chmod 0644 /etc/cron.d/backup-cron && chmod +x /cronjob.sh
+RUN chmod 0644 /etc/cron.d/backup-cron && chmod +x /cronjob.sh && chmod +x /entrypoint.sh
 
 RUN crontab /etc/cron.d/backup-cron
 
-CMD ["cron", "-f"]
+
+ENTRYPOINT ["/entrypoint.sh"]
