@@ -1,5 +1,5 @@
 # eos-cron-backup
-This is a project to run a pitreos(written by eoscanada)docker container which can auto backup the eos data on your full-node. 
+This is a cronjob container to auto run  pitreos(written by eoscanada) command to backup the eos data on your full-node. 
 
 How to use:
 ----------
