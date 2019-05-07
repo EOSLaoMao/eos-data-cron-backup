@@ -8,7 +8,7 @@ services:
     container_name: cronbackup
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/nodeos-data:/data  #Change the host path(right part) to the path you want to backup.
+      - /tmp/nodeos-data:/data  #Change the '/tmp/nodeos-data' to the path where you want to backup.
     environment:
       - CONTAINER_NAME=nodeosd 
       - STORAGE_PATH=/backup #The destination dir, support local storage and gs://xxx
